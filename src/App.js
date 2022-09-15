@@ -7,7 +7,7 @@ function App() {
   const servList = ['localhost:5000', '84.95.84.236:5000', 'serv.dinagold.org'];
   const [servSelect, setServSelect] = useState(servList[0]);
   const [flag, setFlag] = useState(true);
-
+  const [food, setFood] = useState()
   
   function setSer (serv) {
     console.log ('setServer new:', serv, 'old:', servSelect)
@@ -26,6 +26,8 @@ function App() {
     {label: 'dinaGold', value: 'dinagold.org'},
   ]
 
+
+
   function corsServerChange (val) {
     setServSelect (val.value);
     const serverOld = global.server
@@ -36,9 +38,21 @@ function App() {
   return (
     <div className="App">
 
-          <CustomSelect options={corsServerOptions} label='server' onChange={corsServerChange } defaultValue={corsServerOptions[0]} />
+      <div>
+        <select
+          value={food}
+          onChange={(e) => setFood (e.target.value)}
+        >
+          <option value='steak'> steak</option>
+          <option value='falphel'> falphel</option>
+          <option value='fish'> fish</option>
+        </select>
+        {food}
+      </div>
 
-      <div style={{display: 'flex'}}>
+      <CustomSelect options={corsServerOptions} label='server' onChange={corsServerChange } defaultValue={corsServerOptions[0]} />
+
+      {/* <div style={{display: 'flex'}}>
         server: &nbsp;&nbsp;
         {servList.map((servSel) => (
           <div key={servSel} >
@@ -48,7 +62,7 @@ function App() {
           </div>
         ))}
       </div>
-
+ */}
       <div style={{display:'flex'}}> <ServerSelect setServ={setSer} title='server' options={servList}/> </div>
       
       <div> <input  type="checkbox" checked={flag}  onChange={flagChange} /> checkBox &nbsp; &nbsp;</div> 

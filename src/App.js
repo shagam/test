@@ -23,7 +23,7 @@ function App() {
   const corsServerOptions = [
     {label: '84.95.84.236', value: '84.95.84.236'},
     {label: 'localhost', value: 'localhost'},
-    {label: 'dinaGold', value: 'dinagold.org'},
+    {label: 'dinagold.org', value: 'dinagold.org'},
   ]
 
 
